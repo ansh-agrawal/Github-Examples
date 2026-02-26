@@ -1,0 +1,36 @@
+name: hello ansh workflow # name of the workflow
+on: # for event 
+  push:  #push event
+    branches: 
+      - main # on main branch if oush event than trigger workflow
+      
+  pull_request:
+    branches:
+      - main
+      
+  workflow_dispatch: # manualaly triggereign thriugh run button in UI
+
+jobs:  # specifying the jobs(the actions need to be done )  can have more than one job and have runners for each job which can be differet from one another
+  job1:  # the first job
+    runs-on : ubuntu-latest # using the vm given by github only
+    steps:
+      - uses : actions/checkout@v6  # step 1 # for cloning our code to the vm(till now no steps is provided only we copied our code)
+      - name : step2
+        run : echo "hello world"
+        shell : bash
+        
+  job2:
+    runs-on : ubuntu-latest
+    steps:
+      - name : step1 of job2
+        run : echo "end of workflow"
+        shell : bash
+  
+        
+  
+      
+      
+      
+      
+    
+    
