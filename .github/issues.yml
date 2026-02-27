@@ -1,0 +1,11 @@
+name : issue-triggering-workflow
+on:
+  issues:
+    types : [opened]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name : steps-to-print-comment-when-issue-created
+        run : echo '${{toJson(github.event)}}'
+        shell : bash
